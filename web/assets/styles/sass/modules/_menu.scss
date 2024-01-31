@@ -1,0 +1,121 @@
+main#menu {
+    width: 100%;
+    height: auto;
+
+    .container {
+        margin-top: 30px;
+        min-height: 100vh;
+
+        background-image: url("../../img/bg/bg5.jpg");
+        background-position: top;
+        background-repeat: repeat;
+        background-size: auto;
+
+        padding-bottom: 30px;
+
+        .title-1 {
+            text-align: center;
+            font-size: 35px;
+            color: $primaryAccent;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin: 20px auto;
+            border: 2px solid $primary;
+            background-color: rgba(225,225,225,1);
+            border-radius: 10px;
+
+            .content {
+                .top-name {
+                    padding: 10px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+
+                    .sub-title-1 {
+                        // padding: 0 20px;
+                        color: $blackLight;
+                        display: block;
+                    }
+
+                }
+
+                .menu-items {
+                    border-top: 2px solid $primaryAccent;
+                    padding: 20px;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    grid-gap: 20px;
+                    grid-auto-flow: dense;
+
+                    .box {
+                        border-radius: 5px;
+                        height: 200px;
+                        position: relative;
+                        overflow: hidden;
+                        border: 2px solid $primaryAccent;
+                        cursor: default;
+
+                        &:hover {
+                            background-color: $primaryAccent;
+                            border-color: $primary;
+
+                            img {
+                                border: 1px solid white !important;
+                            }
+
+                            p {
+
+                                color: white !important;
+                            }
+                        }
+
+                        .img-placeholder {
+                            padding: 10px;
+                            border-bottom: 2px solid $primaryDark;
+                            height: 150px;
+
+                            img {
+                                border: 1px solid $blackLight;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            padding-top: calc(100% / (16/10));
+                        }
+
+                        .menu-name {
+                            // border: 1px solid red;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            height: 46px;
+                            padding: 0 10px;
+
+                            p {
+                                padding: 0px;
+                                color: black;
+                                font-family: $robotom;
+                                font-size: 16px;
+                            }
+                        }
+                                                    
+                    }
+
+                    
+                }
+            }
+        }
+
+    }
+}

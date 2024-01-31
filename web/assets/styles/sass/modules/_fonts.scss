@@ -1,0 +1,39 @@
+/* fonts */
+
+//FONARTO
+@font-face {
+    font-family: 'Fonarto Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('../../fonts/Fonarto/Fonarto Regular'), url('../../fonts/Fonarto/Fonarto.woff') format('woff');
+}
+
+//YANANESKA PERSONAL USE
+@font-face {
+    font-family: 'Yananeska-Personal-Use';
+    src: local('../../fonts/Yananeska-Personal-Use/Yananeska-Personal-Use'), url('../../fonts/Yananeska-Personal-Use/Yananeska-Personal-Use.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//ROBOTO FAMILY
+@font-face {
+    font-family: 'Roboto Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('../../fonts/Roboto/Roboto Regular'), url('../../fonts/Roboto/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('../../fonts/Roboto/Roboto Bold'), url('../../fonts/Roboto/Roboto-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('../../fonts/Roboto/Roboto Medium'), url('../../fonts/Roboto/Roboto-Medium.woff') format('woff');
+}

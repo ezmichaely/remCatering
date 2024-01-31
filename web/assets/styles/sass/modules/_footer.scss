@@ -1,0 +1,156 @@
+/* --- FOOTER --- */
+footer {
+    .footer-content {
+        color: white;
+        background-color: $primaryAccent;
+        display: flex;
+
+        .footer-section {
+            flex: 1;
+            // border: 1px solid red;
+
+            .wrapper {
+                margin: 10px;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            ul, li, a, span, i {
+                color: white;
+            }
+
+            &.brandname {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 150px;
+                }
+            }
+
+            &.navbar {
+                ul {
+                    padding: 10px;
+                    // border: 1px solid red;
+
+                    li {
+                        list-style: disc outside none;
+                        cursor: pointer;
+                        padding: 2px 0px;
+                        
+                        a {
+                            font-family: $fonarto;
+                            line-height: 22px;
+                            font-size: 18px;
+
+                            &:hover, &.active {
+                                color: $primary;
+                                margin-left: 15px;
+                            }
+                        }
+
+                        &:last-child{
+                            list-style: none;
+                            cursor: default;
+                            visibility: hidden;
+                            height: 1px;
+                            
+                            a {
+                                cursor: default;
+
+                                &:hover, &.active {
+                                    margin-left: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            &.info {
+                display: block;
+
+                .contact-info {
+                    display: block;
+                    padding: 10px;
+
+                    table {
+                        width: 100%;
+                        display: block;
+                        border-collapse: collapse;
+
+                        td {
+                            height: 15px;
+                            padding: 3px 5px;
+
+                            &.icon {
+                                text-align: center;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+                
+                .social-info {
+                    text-align: center;
+                    padding: 5px;
+
+                    a {
+                        font-size: 22px;
+                        padding: 3px 8px;
+                        border: 2px solid $primaryDark;
+                        border-radius: 5px;
+
+                        &:hover {
+                            border: 2px solid $blackLight;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .footer-copyright {
+        padding: 10px;
+        background-color: $primary;
+        font-family: $fonarto;
+        color: $primaryAccent;
+        text-align: center;
+    }
+}
+
+// Monitor devices (desktops, 992px and up)
+@media all and (min-width: 992px) {
+}
+
+
+// Tablet devices (Tablet, 992px and down)
+@media only screen and (max-width: 992px) {
+}
+
+
+//Mobile devices (Mobile, 576px and down)
+@media only screen and (max-width: 670px) { 
+    footer {
+        .footer-content {
+            flex-direction: column;
+
+            .footer-section {
+                padding: 5px 0;
+                
+                &.brandname, &.navbar {
+                    border-bottom: 2px solid $primaryDark;
+                }
+            }
+        }
+    }
+}
+/* --- END OF FOOTER --- */

@@ -1,0 +1,1050 @@
+/* ------------------------
+BOOK NOW --> MULTIFORM TABS
+------------------------ */
+
+/* ------------
+REGEX VARIABLES
+------------ */
+var nameregex = /^[A-Za-z.-]+(\s*[A-Za-z.-]+)*$/;
+var placeregex = /([A-Za-z]+(?: [A-Za-z]+)*),? ([A-Za-z]{2})/;
+var emailregex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+var contactregex = /09[0-9]{9}/; 
+
+
+/* -----------
+FORM VARIABLES
+----------- */
+var fullName, homeAdd, contactNo, emailAdd, iAgree,
+    venue, eventDate, eventTime, themeMotif, occassion, noPax, servingType, catPackage,
+    appetizer, mainCourseCatOne, mainCourseDishOne, mainCourseCatTwo, mainCourseDishTwo,
+        mainCourseCatThree, mainCourseDishThree, mainCourseCatFour, mainCourseDishFour,
+    softdrinks, desertSalad, modePay;
+
+var fullNameError, homeAddError, contactNoError, emailAddError, iAgreeError,
+    venueError, eventDateError, eventTimeError, themeMotifError, occassionError,
+    noPaxError, servingTypeError, catPackageError, appetizerError, 
+    mainCourseCatOneError, mainCourseDishOneError, 
+    mainCourseCatTwoError, mainCourseDishTwoError,
+    mainCourseCatThreeError, mainCourseDishThreeError,
+    mainCourseCatFourError, mainCourseDishFourError,
+    softdrinksError, desertSaladError, modePayError;
+
+var total, packagePrice;
+let servingTypeName;
+let catPackageName;
+
+// will process and sumbit data to php
+function reservationForm() {
+
+}
+
+//BOOK NOW --> MODE OF PAYMENT
+function changeMode() {
+    var mode = document.getElementById("modePay");
+    if (mode.value == "bank") {
+        document.getElementById("bank").style.display = "flex";
+        document.getElementById("pera").style.display = "none";
+    }
+
+    else if (mode.value == "pera") {
+        document.getElementById("bank").style.display = "none";
+        document.getElementById("pera").style.display = "flex";
+    }
+
+    else {
+        document.getElementById("bank").style.display = "none";
+        document.getElementById("pera").style.display = "none";
+    }
+}
+
+// super function that holds our DOM
+function _(x) {
+    return document.getElementById(x);
+}
+
+/* -----------------
+STAGE ONE VALIDATION
+----------------- */
+// text - FULLNAME
+function fullNameValidation() {
+    fullName = _('fullName').value;
+    fullNameError = _('fullNameError');
+    
+    if ((fullName === "") || (fullName === null) || (fullName == " ")) {
+         fullNameError.classList.remove("valid");
+         fullNameError.classList.remove("invalid");
+         fullNameError.innerHTML = "";
+    }
+
+    else if (!isNaN(fullName)) {
+        fullNameError.classList.remove("valid");
+        fullNameError.classList.add("invalid");
+        fullNameError.innerHTML = "*Name should not contain numbers!";
+    }
+    else if (fullName.length <= 4) {
+        fullNameError.classList.remove("valid");
+        fullNameError.classList.add("invalid");
+        fullNameError.innerHTML = "*Please enter your complete name!";
+    }
+    else if (fullName.match(nameregex)) {
+        fullNameError.classList.add("valid");
+        fullNameError.classList.remove("invalid");
+        fullNameError.innerHTML = "";
+    }
+    else {
+        fullNameError.classList.remove("valid");
+        fullNameError.classList.add("invalid");
+        fullNameError.innerHTML = "*Please enter a valid name!";
+    } 
+}
+
+// textarea - HOME ADDRESS
+function homeAddValidation() {
+    homeAdd = _('homeAdd').value;
+    homeAddError = _('homeAddError');
+
+    if ((homeAdd === "") || (homeAdd === null) || (homeAdd == " ")) {
+        homeAddError.classList.remove("valid");
+        homeAddError.classList.remove("invalid");
+        homeAddError.innerHTML = "";
+    }
+
+    else if (homeAdd.match(placeregex)) {
+        homeAddError.classList.add("valid");
+        homeAddError.classList.remove("invalid");
+        homeAddError.innerHTML = "";
+    }
+
+    else if (homeAdd.length <= 4) {
+        homeAddError.classList.remove("valid");
+        homeAddError.classList.add("invalid");
+        homeAddError.innerHTML = "*Please enter your complete address!";
+    }
+
+    else {
+        homeAddError.classList.remove("valid");
+        homeAddError.classList.add("invalid");
+        homeAddError.innerHTML = "*Please enter your complete address!";
+    }
+}
+
+// tel - CONTACT NUMBER
+function contactNoValidation() {
+    contactNo = _('contactNo').value;
+    contactNoError = _('contactNoError');
+
+    if ((contactNo === "") || (contactNo === null) || (contactNo == " ")) {
+        contactNoError.classList.remove("valid");
+        contactNoError.classList.remove("invalid");
+        contactNoError.innerHTML = "";
+    }
+
+    else if (contactNo.match(contactregex)) {
+        contactNoError.classList.add("valid");
+        contactNoError.classList.remove("invalid");
+        contactNoError.innerHTML = "";
+    }
+
+    else {
+        contactNoError.classList.remove("valid");
+        contactNoError.classList.add("invalid");
+        contactNoError.innerHTML = "*Please check your number!";
+    }    
+}
+
+// email - EMAIL ADDRESS
+function emailAddValidation() {
+    emailAdd = _('emailAdd').value;
+    contactNoError = _('contactNoError');
+
+    if ((emailAdd === "") || (emailAdd === null) || (emailAdd == " ")) {
+        emailAddError.classList.remove("valid");
+        emailAddError.classList.remove("invalid");
+        emailAddError.innerHTML = "";
+    }
+
+    else if (emailAdd.match(emailregex)) {
+        emailAddError.classList.add("valid");
+        emailAddError.classList.remove("invalid");
+        emailAddError.innerHTML = "";
+    }
+
+    else {
+        emailAddError.classList.remove("valid");
+        emailAddError.classList.add("invalid");
+        emailAddError.innerHTML = "*Please enter a valid email!";
+    }
+}
+
+// checkbox - I AGREE
+function iAgreeValidation() {
+    iAgreeError = _('iAgreeError');
+    var value = false;
+
+    if (_('iAgree').checked == true) {
+        value = true;
+    }
+
+    if (value) {
+        iAgreeError.classList.remove("valid");
+        iAgreeError.classList.remove("invalid");
+        iAgreeError.innerHTML = "";
+        iAgree = _('iAgree').value;
+    }
+    
+    else {
+        iAgreeError.classList.remove("valid");
+        iAgreeError.classList.add("invalid");
+        iAgreeError.innerHTML = "";
+        return false;
+    }
+    
+}
+
+/* -----------------
+STAGE TWO VALIDATION
+----------------- */
+// textarea - VENUE
+function venueValidation() {
+    venue = _('venue').value;
+    venueError = _('venueError');
+
+    if ((venue === "") || (venue === null) || (venue == " ")) {
+        venueError.classList.remove("valid");
+        venueError.classList.remove("invalid");
+        venueError.innerHTML = "";
+    }
+
+    else if (venue.match(placeregex)) {
+        venueError.classList.add("valid");
+        venueError.classList.remove("invalid");
+        venueError.innerHTML = "";
+    }
+
+    else if (venue.length <= 4) {
+        venueError.classList.remove("valid");
+        venueError.classList.add("invalid");
+        venueError.innerHTML = "*Please enter your complete address or venue!";
+    }
+
+    else {
+        venueError.classList.remove("valid");
+        venueError.classList.add("invalid");
+        venueError.innerHTML = "*Please enter your complete address venue!";
+    }
+}
+
+// date - EVENT DATE
+function eventDateValidation() {
+    eventDate = _('eventDate').value;
+    eventDateError = _('eventDateError');
+
+    if ((eventDate === "") || (eventDate === null) || (eventDate == " ")) {
+        eventDateError.classList.remove("valid");
+        eventDateError.classList.remove("invalid");
+        eventDateError.innerHTML = "";
+    }
+
+    else {
+        eventDateError.classList.remove("valid");
+        eventDateError.classList.remove("invalid");
+        eventDateError.innerHTML = "";
+    }
+}
+
+// time - EVENT TIME
+function eventTimeValidation() {
+    eventTime = _('eventTime').value;
+    eventTimeError = _('eventTimeError');
+
+    if ((eventTime === "") || (eventTime === null) || (eventTime == " ")) {
+        eventTimeError.classList.remove("valid");
+        eventTimeError.classList.remove("invalid");
+        eventTimeError.innerHTML = "";
+    }
+
+    else {
+        eventTimeError.classList.remove("valid");
+        eventTimeError.classList.remove("invalid");
+        eventTimeError.innerHTML = "";
+    }
+}
+
+// select option - OCCASSION
+function occassionValidation() {
+    occassion = _('occassion').value;
+    occassionError = _('occassionError');
+
+    if (occassion == "default") {
+        occassionError.classList.remove("valid");
+        occassionError.classList.remove("invalid");
+        occassionError.innerHTML = "";
+    }
+
+    else {
+        occassionError.classList.remove("valid");
+        occassionError.classList.remove("invalid");
+        occassionError.innerHTML = "";
+    }
+}
+
+// textarea - THEME / MOTIF
+function themeMotifValidation() {
+    themeMotif = _('themeMotif').value;
+    themeMotifError = _('themeMotifError');
+
+    if ((themeMotif === "") || (themeMotif === null) || (themeMotif == " ")) {
+        themeMotifError.classList.remove("valid");
+        themeMotifError.classList.remove("invalid");
+        themeMotifError.innerHTML = "";
+    }
+
+    else if (themeMotif.length <= 4) {
+        themeMotifError.classList.remove("valid");
+        themeMotifError.classList.add("invalid");
+        themeMotifError.innerHTML = "*Please add more discription!";
+    }
+
+    else {
+        themeMotifError.classList.remove("valid");
+        themeMotifError.classList.remove("invalid");
+        themeMotifError.innerHTML = "";
+    }
+}
+
+// number - NUMBER OF PAX
+function noPaxValidation() {
+    noPax = _('noPax').value;
+    noPaxError = _('noPaxError');
+
+    if ((noPax === "") || (noPax === null) || (noPax == " ")) {
+        noPaxError.classList.remove("valid");
+        noPaxError.classList.remove("invalid");
+        noPaxError.innerHTML = "";
+    }
+
+    else if ((noPax < 20) || (noPax > 150)) {
+        noPaxError.classList.remove("valid");
+        noPaxError.classList.add("invalid");
+        noPaxError.innerHTML = "*Number of Pax must not be lower than 20 and not higher than 150 persons!";
+    }
+
+    else {
+        noPaxError.classList.remove("valid");
+        noPaxError.classList.remove("invalid");
+        noPaxError.innerHTML = "";
+    }
+}
+
+// radio - SERVING TYPE
+function servingTypeValidation() {
+    servingTypeError = _('servingTypeError');
+    
+    const rbs = document.querySelectorAll('input[name="servingType"]');
+    servingTypeName;
+    for (const rb of rbs) {
+        if (rb.checked) {
+            servingTypeName = rb.value;
+            servingTypeError.classList.remove("valid");
+            servingTypeError.classList.remove("invalid");
+            servingTypeError.innerHTML = "";
+            break;
+        }
+    }
+    // alert(servingTypeName);
+}
+
+// radio - PACKAGES
+function catPackageValidation() {
+    catPackageError = _('catPackageError');
+
+    const rbs = document.querySelectorAll('input[name="catPackage"]');
+    catPackageName;
+    for (const rb of rbs) {
+        if (rb.checked) {
+            catPackageName = rb.value;
+            catPackageError.classList.remove("valid");
+            catPackageError.classList.remove("invalid");
+            catPackageError.innerHTML = "";
+            break;
+        }
+    }
+    // alert(catPackageName);
+
+    if (catPackageName == "emerald") {
+        _('appetizerDiv').style.display = "none";
+        _('mc4').style.display = "none";
+        _('appetizerDiv2').style.display = "none";
+        _('mc42').style.display = "none";
+
+        _('appetizer').disabled=true;
+        _('mainCourseCatFour').disabled = true;
+        _('mainCourseDishFour').disabled = true;
+    }
+
+    else if (catPackageName == "ruby") {
+        _('appetizerDiv').style.display = "block";
+        _('mc4').style.display = "none";
+        _('appetizerDiv2').style.display = "block";
+        _('mc42').style.display = "none";
+
+        _('appetizer').disabled = false;
+        _('mainCourseCatFour').disabled = true;
+        _('mainCourseDishFour').disabled = true;
+    }
+
+    else if (catPackageName == "sapphire") {
+        _('appetizerDiv').style.display = "block";
+        _('mc4').style.display = "block";
+        _('appetizerDiv2').style.display = "block";
+        _('mc42').style.display = "block";
+
+        _('appetizer').disabled = false;
+        _('mainCourseCatFour').disabled = false;
+        _('mainCourseDishFour').disabled = false;
+    }
+
+    else {
+        _('appetizerDiv').style.display = "none";
+        _('mc4').style.display = "none";
+        _('appetizerDiv2').style.display = "none";
+        _('mc42').style.display = "none";
+
+        _('appetizer').disabled = true;
+        _('mainCourseCatFour').disabled = true;
+        _('mainCourseDishFour').disabled = true;
+    }
+    
+}
+
+/* -----------------
+STAGE THREE VALIDATION
+----------------- */
+// select option - APPETIZER
+function appetizerValidation() {
+    appetizer = _('appetizer').value;
+    appetizerError = _('appetizerError');
+
+    if (appetizer == "default") {
+        appetizerError.classList.remove("valid");
+        appetizerError.classList.remove("invalid");
+        appetizerError.innerHTML = "";
+    }
+
+    else {
+        appetizerError.classList.remove("valid");
+        appetizerError.classList.remove("invalid");
+        appetizerError.innerHTML = "";
+    }
+}
+
+// select option - [1] MAIN COURSE CATEGORY
+function mainCourseCatOneValidation() {
+    mainCourseCatOne = _('mainCourseCatOne').value;
+    mainCourseCatOneError = _('mainCourseCatOneError');
+
+    if (mainCourseCatOne == "default") {
+        mainCourseCatOneError.classList.remove("valid");
+        mainCourseCatOneError.classList.add("invalid");
+        mainCourseCatOneError.innerHTML = "";
+    }
+
+    else {
+        mainCourseCatOneError.classList.add("valid");
+        mainCourseCatOneError.classList.remove("invalid");
+        mainCourseCatOneError.innerHTML = "";
+    }
+}
+
+// select option - [1] MAIN COURSE DISH
+function mainCourseDishOneValidation() {
+    mainCourseDishOne = _('mainCourseDishOne').value;
+    mainCourseDishOneError = _('mainCourseDishOneError');
+
+    if (mainCourseDishOne == "default") {
+        mainCourseDishOneError.classList.remove("valid");
+        mainCourseDishOneError.classList.add("invalid");
+        mainCourseDishOneError.innerHTML = "";
+    }
+
+    else {
+        mainCourseDishOneError.classList.add("valid");
+        mainCourseDishOneError.classList.remove("invalid");
+        mainCourseDishOneError.innerHTML = "";
+    }
+}
+
+// select option - [2] MAIN COURSE CATEGORY
+function mainCourseCatTwoValidation() {
+    mainCourseCatTwo = _('mainCourseCatTwo').value;
+    mainCourseCatTwoError = _('mainCourseCatTwoError');
+
+    if (mainCourseCatTwo == "default") {
+        mainCourseCatTwoError.classList.remove("valid");
+        mainCourseCatTwoError.classList.add("invalid");
+        mainCourseCatTwoError.innerHTML = "";
+    }
+
+    else {
+        mainCourseCatTwoError.classList.remove("valid");
+        mainCourseCatTwoError.classList.add("invalid");
+        mainCourseCatTwoError.innerHTML = "";
+    }
+}
+
+// select option - [2] MAIN COURSE DISH
+function mainCourseDishTwoValidation() {
+    mainCourseDishTwo = _('mainCourseDishTwo').value;
+    mainCourseDishTwoError = _('mainCourseDishTwoError');
+
+    if (mainCourseDishTwo == "default") {
+        mainCourseDishTwoError.classList.remove("valid");
+        mainCourseDishTwoError.classList.add("invalid");
+        mainCourseDishTwoError.innerHTML = "";
+    }
+
+    else {
+        mainCourseDishTwoError.classList.add("valid");
+        mainCourseDishTwoError.classList.remove("invalid");
+        mainCourseDishTwoError.innerHTML = "";
+    }
+}
+
+// select option - [3] MAIN COURSE CATEGORY
+function mainCourseCatThreeValidation() {
+    mainCourseCatThree = _('mainCourseCatThree').value;
+    mainCourseCatThreeError = _('mainCourseCatThreeError');
+
+    if (mainCourseCatThree == "default") {
+        mainCourseCatThreeError.classList.remove("valid");
+        mainCourseCatThreeError.classList.add("invalid");
+        mainCourseCatThreeError.innerHTML = "";
+    }
+
+    else {
+        mainCourseCatThreeError.classList.add("valid");
+        mainCourseCatThreeError.classList.remove("invalid");
+        mainCourseCatThreeError.innerHTML = "";
+    }
+}
+
+// select option - [3] MAIN COURSE DISH
+function mainCourseDishThreeValidation() {
+    mainCourseDishThree = _('mainCourseDishThree').value;
+    mainCourseDishThreeError = _('mainCourseDishThreeError');
+
+    if (mainCourseDishThree == "default") {
+        mainCourseDishThreeError.classList.remove("valid");
+        mainCourseDishThreeError.classList.remove("invalid");
+        mainCourseDishThreeError.innerHTML = "";
+    }
+
+    else {
+        mainCourseDishThreeError.classList.remove("valid");
+        mainCourseDishThreeError.classList.remove("invalid");
+        mainCourseDishThreeError.innerHTML = "";
+    }
+}
+
+// select option - [4] MAIN COURSE CATEGORY
+function mainCourseCatFourValidation() {
+    mainCourseCatFour = _('mainCourseCatFour').value;
+    mainCourseCatFourError = _('mainCourseCatFourError');
+
+    if (mainCourseCatFour == "default") {
+        mainCourseCatFourError.classList.remove("valid");
+        mainCourseCatFourError.classList.remove("invalid");
+        mainCourseCatFourError.innerHTML = "";
+    }
+
+    else {
+        mainCourseCatFourError.classList.remove("valid");
+        mainCourseCatFourError.classList.remove("invalid");
+        mainCourseCatFourError.innerHTML = "";
+    }
+}
+
+// select option - [4] MAIN COURSE DISH
+function mainCourseDishFourValidation() {
+    mainCourseDishFour = _('mainCourseDishFour').value;
+    mainCourseDishFourError = _('mainCourseDishFourError');
+
+    if (mainCourseDishFour == "default") {
+        mainCourseDishFourError.classList.remove("valid");
+        mainCourseDishFourError.classList.remove("invalid");
+        mainCourseDishFourError.innerHTML = "";
+    }
+
+    else {
+        mainCourseDishFourError.classList.remove("valid");
+        mainCourseDishFourError.classList.remove("invalid");
+        mainCourseDishFourError.innerHTML = "";
+    }
+}
+
+// select option - SOFTDRINKS
+function softdrinksValidation() {
+    softdrinks = _('softdrinks').value;
+    softdrinksError = _('softdrinksError');
+
+    if (softdrinks == "default") {
+        softdrinksError.classList.remove("valid");
+        softdrinksError.classList.remove("invalid");
+        softdrinksError.innerHTML = "";
+    }
+
+    else {
+        softdrinksError.classList.remove("valid");
+        softdrinksError.classList.remove("invalid");
+        softdrinksError.innerHTML = "";
+    }
+}
+
+// select option - DESERT / SALAD
+function desertSaladValidation() {
+    desertSalad = _('desertSalad').value;
+    desertSaladError = _('desertSaladError');
+
+    if ((desertSalad === "") || (desertSalad === null) || (desertSalad == " ") || (desertSalad == "default")) {
+        desertSaladError.classList.remove("valid");
+        desertSaladError.classList.remove("invalid");
+        desertSaladError.innerHTML = "";
+    }
+
+    else {
+        desertSaladError.classList.remove("valid");
+        desertSaladError.classList.remove("invalid");
+        desertSaladError.innerHTML = "";
+    }
+}
+
+/* ---------------------
+PROCESS STAGE VALIDATION
+--------------------- */
+// to processStageOne
+// function nxtprocessStageOne() {
+//     fullName = _('fullName').value;
+//     homeAdd = _('homeAdd').value;
+//     contactNo = _('contactNo').value;
+//     emailAdd = _('emailAdd').value;
+
+//     fullNameError = _('fullNameError');
+//     homeAddError = _('homeAddError');
+//     contactNoError = _('contactNoError');
+//     emailAddError = _('emailAddError');
+//     iAgreeError = _('iAgreeError');
+
+//     // //VALIDATE FULL NAME 
+//     // if ((fullName === "") || (fullName === null) || (fullName == " ")) {
+//     //     fullNameError.classList.remove("valid");
+//     //     fullNameError.classList.add("invalid");
+//     //     fullNameError.innerHTML = "*Please enter your name!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE HOME ADDRESS
+//     // if ((homeAdd === "") || (homeAdd === null) || (homeAdd == " ")) {
+//     //     homeAddError.classList.remove("valid");
+//     //     homeAddError.classList.add("invalid");
+//     //     homeAddError.innerHTML = "*Please enter your address!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE CONTACT NUMBER
+//     // if ((contactNo === "") || (contactNo === null) || (contactNo == " ")) {
+//     //     contactNoError.classList.remove("valid");
+//     //     contactNoError.classList.add("invalid");
+//     //     contactNoError.innerHTML = "*Please enter your number!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE EMAIL ADDRESS
+//     // if ((emailAdd === "") || (emailAdd === null) || (emailAdd == " ")) {
+//     //     emailAddError.classList.remove("valid");
+//     //     emailAddError.classList.add("invalid");
+//     //     emailAddError.innerHTML = "*Please enter your email address!";
+//     //     return false;
+//     // }
+
+//     // // TERMS & CONDITIONS
+//     // var value = false;
+//     // if (_('iAgree').checked == true) {
+//     //     iAgreeError.classList.remove("valid");
+//     //     iAgreeError.classList.remove("invalid");
+//     //     iAgreeError.innerHTML = "";
+//     //     value = true;
+//     // }
+//     // if (value) {
+//     //     iAgreeError.classList.remove("valid");
+//     //     iAgreeError.classList.remove("invalid");
+//     //     iAgreeError.innerHTML = "";
+//     //     iAgree = _('iAgree').value;
+//     // }
+//     // else {
+//     //     iAgreeError.classList.remove("valid");
+//     //     iAgreeError.classList.add("invalid");
+//     //     iAgreeError.innerHTML = "*Must agree the Terms and Conditions before you proceed!";
+//     //     return false;
+//     // }
+
+//     // HIDE STAGE 1
+//     _('stageOne').style.display = "none";
+//     // SHOW STAGE 2
+//     _('one-one').classList.add("finished");
+//     _('two-one').classList.add("finished");
+//     _('three-one').classList.add("finished");
+//     _('four-one').classList.add("finished");
+
+//     _('stageTwo').style.display = "block";
+// }
+
+// // to processStageTwo
+// function nxtprocessStageTwo() {
+//     // venue = _('venue').value;
+//     // eventDate = _('eventDate').value;
+//     // eventTime = _('eventTime').value;
+//     occassion = _('occassion').value;
+//     // themeMotif = _('themeMotif').value;
+//     // noPax = _('noPax').value;
+
+//     // venueError = _('venueError');
+//     // eventDateError = _('eventDateError');
+//     // eventTimeError = _('eventTimeError');
+//     occassionError = _('occassionError');
+//     // themeMotifError = _('themeMotifError');
+//     // noPaxError = _('noPaxError');
+//     // servingTypeError = _('servingTypeError');
+//     // noPaxError = _('noPaxError');
+//     // catPackageError = _('catPackageError');
+    
+
+//     // // VALIDATE VENUE 
+//     // if ((venue === "") || (venue === null) || (venue == " ") || (venue.length === 0)) {
+//     //     venueError.classList.remove("valid");
+//     //     venueError.classList.add("invalid");
+//     //     venueError.innerHTML = "*Please enter the venue!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE EVENT DATE
+//     // if ((eventDate === "") || (eventDate === null) || (eventDate == " ")) {
+//     //     eventDateError.classList.remove("valid");
+//     //     eventDateError.classList.add("invalid");
+//     //     eventDateError.innerHTML = "*Add the event's date!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE EVENT TIME
+//     // if ((eventTime === "") || (eventTime === null) || (eventTime == " ")) {
+//     //     eventTimeError.classList.remove("valid");
+//     //     eventTimeError.classList.add("invalid");
+//     //     eventTimeError.innerHTML = "*Add the event's time!";
+//     //     return false;
+//     // }
+
+//     // // VALIDATE OCCASSION
+//     // if (occassion == "default") {
+//     //     occassionError.classList.remove("valid");
+//     //     occassionError.classList.add("invalid");
+//     //     occassionError.innerHTML = "*Please specify what type of occassion!";
+//     //     return false;
+//     // }
+
+//     // //VALIDATE THEME MOTIF
+//     // if ((themeMotif === "") || (themeMotif === null) || (themeMotif == " ")) {
+//     //     themeMotifError.classList.remove("valid");
+//     //     themeMotifError.classList.add("invalid");
+//     //     themeMotifError.innerHTML = "*Please add a short discription of the Theme or Motif of the occassion!";
+//     //     return false;
+//     // }
+
+//     // //VALIDATE NUMBER OF PAX
+//     // if ((noPax === "") || (noPax === null) || (noPax == " ")) {
+//     //     noPaxError.classList.remove("valid");
+//     //     noPaxError.classList.add("invalid");
+//     //     noPaxError.innerHTML = "*Add the number of Pax and must not be lower than 20 or not higher than 150 persons!";
+//     //     return false;
+//     // }
+//     // else if ((noPax < 20) || (noPax > 150 )) {
+//     //     noPaxError.classList.remove("valid");
+//     //     noPaxError.classList.add("invalid");
+//     //     noPaxError.innerHTML = "*Number of Pax must not be lower than 20 and not higher than 150 persons!";
+//     //     return false;
+//     // }
+    
+//     // //VALIDATE SERVING TYPE
+//     // servingType = document.querySelectorAll('input[name="servingType"]:checked')
+//     // if ((servingType === "") || (servingType === null) || (servingType == " ") || (servingType.length === 0)) {
+//     //     servingTypeError.classList.remove("valid");
+//     //     servingTypeError.classList.add("invalid");
+//     //     servingTypeError.innerHTML = "*Please select a type!";
+//     //     return false;
+//     // }
+    
+//     // // VALIDATE PACKAGE
+//     // catPackage = document.querySelectorAll('input[name="catPackage"]:checked')
+//     // if ((catPackage === "") || (catPackage === null) || (catPackage == " ") || (catPackage.length === 0)) {
+//     //     catPackageError.classList.remove("valid");
+//     //     catPackageError.classList.add("invalid");
+//     //     catPackageError.innerHTML = "*Please select a package!";
+//     //     return false;
+//     // }
+
+//     // HIDE STAGE 2
+//     _('stageTwo').style.display = "none";
+//     // SHOW STAGE 3
+//     _('one-two').classList.add("finished");
+//     _('two-two').classList.add("finished");
+//     _('three-two').classList.add("finished");
+//     _('four-two').classList.add("finished");
+
+//     _('stageThree').style.display = "block";
+// }
+
+// // to processStageThree
+// function nxtprocessStageThree() {
+//     appetizer = _('appetizer').value;
+//     mainCourseCatOne = _('mainCourseCatOne').value;
+//     mainCourseDishOne = _('mainCourseDishOne').value;
+//     mainCourseCatTwo = _('mainCourseCatTwo').value;
+//     mainCourseDishTwo = _('mainCourseDishTwo').value;
+//     mainCourseCatThree = _('mainCourseCatThree').value;
+//     mainCourseDishThree = _('mainCourseDishThree').value;
+//     mainCourseCatFour = _('mainCourseCatFour').value;
+//     mainCourseDishFour = _('mainCourseDishFour').value;
+//     softdrinks = _('softdrinks').value;
+//     desertSalad = _('desertSalad').value;
+
+//     appetizerError = _('appetizerError');
+//     mainCourseCatOneError = _('mainCourseCatOneError');
+//     mainCourseDishOneError = _('mainCourseDishOneError');
+//     mainCourseCatTwoError = _('mainCourseCatTwoError');
+//     mainCourseDishTwoError = _('mainCourseDishTwoError');
+//     mainCourseCatThreeError = _('mainCourseCatThreeError');
+//     mainCourseDishThreeError = _('mainCourseDishThreeError');
+//     mainCourseCatFourError = _('mainCourseCatFourError');
+//     mainCourseDishFourError = _('mainCourseDishFourError');
+//     softdrinksError = _('softdrinksError');
+//     desertSaladError = _('desertSaladError');
+
+//     // switch (catPackageName) {
+//     //     case "emerald":
+//     //         // alert(catPackageName);
+//     //         // VALIDATE APPETIZER + [4] MAIN COURSE CATEGORY && [4] MAIN COURSE DISH
+//     //         if ((appetizer == "default") && (mainCourseCatFour == "default") && (mainCourseDishFour == "default")) {
+//     //             appetizerError.classList.remove("valid");
+//     //             appetizerError.classList.add("invalid");
+//     //             appetizerError.innerHTML = "";
+
+//     //             mainCourseCatFourError.classList.remove("valid");
+//     //             mainCourseCatFourError.classList.add("invalid");
+//     //             mainCourseCatFourError.innerHTML = "";
+
+//     //             mainCourseDishFourError.classList.remove("valid");
+//     //             mainCourseDishFourError.classList.add("invalid");
+//     //             mainCourseDishFourError.innerHTML = "";
+
+//     //             // return true;
+//     //         }
+//     //         break;
+
+//     //     case "ruby":
+//     //         // alert(catPackageName);
+//     //         // VALIDATE APPETIZER
+//     //         if (appetizer == "default") {
+//     //             appetizerError.classList.remove("valid");
+//     //             appetizerError.classList.add("invalid");
+//     //             appetizerError.innerHTML = "*Please choose an appetizer!";
+//     //             return false;
+//     //         }
+
+//     //         // VALIDATE [4] MAIN COURSE CATEGORY && [4] MAIN COURSE DISH
+//     //         else if ((mainCourseCatFour == "default") && (mainCourseDishFour == "default")) {
+//     //             mainCourseCatFourError.classList.remove("valid");
+//     //             mainCourseCatFourError.classList.add("invalid");
+//     //             mainCourseCatFourError.innerHTML = "";
+
+//     //             mainCourseDishFourError.classList.remove("valid");
+//     //             mainCourseDishFourError.classList.add("invalid");
+//     //             mainCourseDishFourError.innerHTML = "";
+//     //             // return true;
+//     //         }
+
+//     //         break;
+
+//     //     case "sapphire":
+//     //         // alert(catPackageName);
+//     //         // VALIDATE APPETIZER + [4] MAIN COURSE CATEGORY && [4] MAIN COURSE DISH
+//     //         if (appetizer == "default"){
+//     //             appetizerError.classList.remove("valid");
+//     //             appetizerError.classList.add("invalid");
+//     //             appetizerError.innerHTML = "*Please choose an appetizer!";
+//     //             return false;
+//     //         }
+//     //         // else if (mainCourseCatFour == "default") {
+//     //         //     mainCourseCatFourError.classList.remove("valid");
+//     //         //     mainCourseCatFourError.classList.add("invalid");
+//     //         //     mainCourseCatFourError.innerHTML = "*Please select a food category!";
+//     //         //     return false;
+//     //         // }
+//     //         // else if (mainCourseDishFour == "default") {
+//     //         //     mainCourseDishFourError.classList.remove("valid");
+//     //         //     mainCourseDishFourError.classList.add("invalid");
+//     //         //     mainCourseDishFourError.innerHTML = "*Please select the dish!";
+//     //         //     return false;
+//     //         // }
+//     //         break;
+
+//     //     default:
+//     //         break;
+//     // }
+
+//     // VALIDATE APPETIZER
+//     if ((catPackageName == "ruby") || (catPackageName == "saphhire")) {
+//         if (appetizer == "default") {
+//             appetizerError.classList.remove("valid");
+//             appetizerError.classList.add("invalid");
+//             appetizerError.innerHTML = "*Please choose an appetizer!";
+//             return false;
+//         }
+//     }
+
+//     // mainCourseDishOne
+
+//     // VALIDATE [1] MAIN COURSE CATEGORY
+//     // if (mainCourseCatOne == "default") {
+//     //     mainCourseCatOneError.classList.remove("valid");
+//     //     mainCourseCatOneError.classList.add("invalid");
+//     //     mainCourseCatOneError.innerHTML = "*Please select a food category!";
+//     //     return false;
+//     // }
+
+//     // VALIDATE [1] MAIN COURSE DISH
+//     if (mainCourseDishOne == "default") {
+//         mainCourseDishOneError.classList.remove("valid");
+//         mainCourseDishOneError.classList.add("invalid");
+//         mainCourseDishOneError.innerHTML = "*Please select the dish!";
+//         return false;
+//     }
+
+//     // VALIDATE [2] MAIN COURSE CATEGORY
+//     if (mainCourseCatTwo == "default") {
+//         mainCourseCatTwoError.classList.remove("valid");
+//         mainCourseCatTwoError.classList.add("invalid");
+//         mainCourseCatTwoError.innerHTML = "*Please select a food category!";
+//         return false;
+//     }
+
+//     // VALIDATE [2] MAIN COURSE DISH
+//     if (mainCourseDishThree == "default") {
+//         mainCourseDishThreeError.classList.remove("valid");
+//         mainCourseDishThreeError.classList.add("invalid");
+//         mainCourseDishThreeError.innerHTML = "*Please select the dish!";
+//         return false;
+//     }
+
+//     // VALIDATE [3] MAIN COURSE CATEGORY
+//     // if (mainCourseCatThree == "default") {
+//     //     mainCourseCatThreeError.classList.remove("valid");
+//     //     mainCourseCatThreeError.classList.add("invalid");
+//     //     mainCourseCatThreeError.innerHTML = "*Please select a food category!";
+//     //     return false;
+//     // }
+
+//     // VALIDATE [3] MAIN COURSE DISH
+//     if ((mainCourseDishThree == "default")) {
+//         mainCourseDishThreeError.classList.remove("valid");
+//         mainCourseDishThreeError.classList.add("invalid");
+//         mainCourseDishThreeError.innerHTML = "*Please select the dish!";
+//         return false;
+//     }
+
+//     if (catPackageName == "sapphire") {
+//         if (mainCourseCatFour == "default") {
+//                 mainCourseCatFourError.classList.remove("valid");
+//                 mainCourseCatFourError.classList.add("invalid");
+//                 mainCourseCatFourError.innerHTML = "*Please select a food category!";
+//                 return false;
+//             }
+//         else if (mainCourseDishFour == "default") {
+//             mainCourseDishFourError.classList.remove("valid");
+//             mainCourseDishFourError.classList.add("invalid");
+//             mainCourseDishFourError.innerHTML = "*Please select the dish!";
+//             return false;
+//         }
+//     }
+
+
+    
+
+//     // if (catPackage == "Emerald") {
+//     //     packagePrice = 210;
+//     // }
+//     // else if (catPackage == "Ruby") {
+//     //     packagePrice = 220;
+//     // }
+//     // else if (catPackage == "Sapphire") {
+//     //     packagePrice = 240;
+//     // }
+
+//     // total = packagePrice * noPax;
+    
+//     // _('popAppetizer').innerHTML = appetizer;
+//     // _('popMainCourseCatOne').innerHTML = mainCourseCatOne;
+//     // _('popMainCourseDishOne').innerHTML = mainCourseDishOne;
+//     // _('popMainCourseCatTwo').innerHTML = mainCourseCatTwo;
+//     // _('popMainCourseDishTwo').innerHTML = mainCourseDishTwo;
+//     // _('popMainCourseCatThree').innerHTML = mainCourseCatThree;
+//     // _('popMainCourseDishThree').innerHTML = mainCourseDishThree;
+//     // _('popMainCourseCatFour').innerHTML = mainCourseCatFour;
+//     // _('popMainCourseDishFour').innerHTML = mainCourseDishFour;
+//     // _('popDesertSalad').innerHTML = desertSalad;
+//     // _('popCatPackage').innerHTML = catPackage;
+//     // _('popPackagePrice').innerHTML = packagePrice;
+//     // _('popNoPax').innerHTML = noPax;
+//     // _('popPackagePrice2').innerHTML = packagePrice;
+//     // _('popNoPax2').innerHTML = noPax;
+//     // _('popTotal').innerHTML = total;
+
+
+//     // HIDE STAGE 3
+//     _('stageThree').style.display = "none";
+    
+//     _('one-three').classList.add("finished");
+//     _('two-three').classList.add("finished");
+//     _('three-three').classList.add("finished");
+//     _('four-three').classList.add("finished");
+
+//     // SHOW STAGE 4
+//     _('stageFour').style.display = "block";
+
+// }
+
+
+// /* -----------------
+// VIEW PREVIOUS STAGES
+// ----------------- */
+// // view prevStageTwo
+// function prevprocessStageTwo() {
+//     // HIDE STAGE 2
+//     _('stageTwo').style.display = "none";
+//     // SHOW STAGE 1
+//     _('stageOne').style.display = "block";
+// }
+
+// // view prevStageThree
+// function prevprocessStageThree() {
+//     // HIDE STAGE 2
+//     _('stageThree').style.display = "none";
+//     // SHOW STAGE 1
+//     _('stageTwo').style.display = "block";
+// }
+
+// // view prevStageFour
+// function prevprocessStageFour() {
+//     // HIDE STAGE 2
+//     _('stageFour').style.display = "none";
+//     // SHOW STAGE 1
+//     _('stageThree').style.display = "block";
+// }
+

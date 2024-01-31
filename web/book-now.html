@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo/favico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo/favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo/favico/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/logo/favico/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/logo/favico/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="icon" type="image/ico" href="assets/img/logo/favico/favico.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/styles/css/font-awesome.css">
+    <!-- Lightbox -->
+    <link rel="stylesheet" href="assets/styles/css/lightbox.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/styles/css/main.css">
+
+    <title>Remmary Catering | Home</title>
+
+    
+</head>
+
+<body>
+    <header class="bb on">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <img src="assets/img/logo/logo1.png" alt="logo-main">
+            </a>
+        </div>
+
+        <div class="booknow first">
+            <a href="book-now.html" class="btn active">BOOK NOW!</a>
+        </div>
+
+        <div class="navbar-toggler">
+            <div class="toggle-icons off">
+                <span class="navbar-toggler-icon"></span>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="navbar-collapse" id="nav-menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item button"><a href="book-now.html" class="booknow active">BOOK NOW!</a></li>
+                    <li class="nav-item "><a href="index.html" class="nav-link">HOME</a></li>
+                    <li class="nav-item "><a href="menu.html" class="nav-link">MENU</a></li>
+                    <li class="nav-item "><a href="gallery.html" class="nav-link">GALLERY</a></li>
+                    <li class="nav-item "><a href="schedules.html" class="nav-link">SCHEDULES</a></li>
+                    <li class="nav-item "><a href="about-us.html" class="nav-link">ABOUT US</a></li>
+                    <li class="nav-item "><a href="contact-us.html" class="nav-link">CONTACT US</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="booknow second">
+            <a href="book-now.html" class="btn active">BOOK NOW!</a>
+        </div>
+    </header>
+
+    <main id="booknow">
+        <section class="container">
+            <h1 class="title">RESERVATION</h1>
+            <div class="wrapper">
+                 <form id="reservation-form" action="" method="" autocomplete="on">
+                    <div class="content">
+                        <h2 class="sub-title-1">PERSONAL INFORMATION</h2>
+                        <div>
+                            <div class="row">
+                                <label for="fullName">Full Name</label>
+                                <span class="error" id="fullNameError"></span>
+                            </div>
+                                <input type="text" id="fullName" name="fullName" onkeyup="fullNameValidation()" required>
+                            <div class="row">
+                                <label for="homeAdd">Home Address</label>
+                                <span class="error" id="homeAddError"></span>
+                            </div>
+                            <textarea id="homeAdd" name="homeAdd"  required onkeyup="homeAddValidation()"></textarea>
+                            
+                            <div class="row">
+                                <label for="contactNo">Contact Number</label>
+                                <span class="error" id="contactNoError"></span>
+                            </div>
+                            <input type="tel" id="contactNo" name="contactNo" maxlength="11" size="11" onkeyup="contactNoValidation()" required>
+                            
+                            <div class="row">
+                                <label for="emailAdd">Email Address</label>
+                                <span class="error" id="emailAddError"></span>
+                            </div>
+                            <input type="email" id="emailAdd" name="emailAdd" required onkeyup="emailAddValidation()">
+
+                            <div class="iagree">
+                                <span style="padding-left: 0px;" class="error" id="iAgreeError"></span>
+                                <div class="row">
+                                    <input type="checkbox" id="iAgree" name="iAgree" value="iAgree" required onclick="iAgreeValidation()">
+                                    <label for="iAgree">
+                                        I agree to the <a href="">Terms and Conditions</a> of the Remmamy Catering
+                                    </label>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="content">
+                        <h2 class="sub-title-1">RESERVATION DETAILS</h2>
+
+                        <div>
+                            <div class="row">
+                                    <label for="venue">Venue</label>
+                                    <span class="error" id="venueError"></span>
+                                </div>
+                                <textarea id="venue" name="venue" required onkeyup="venueValidation()"></textarea>
+
+                                <div class="date-time row">
+                                    <div class="left">
+                                        <label for="eventDate">Event Date</label>
+                                        <span class="error" id="eventDateError"></span>
+                                    </div>
+
+                                    <div class="right">
+                                        <label for="eventTime">Event time</label>
+                                        <span class="error" id="eventTimeError"></span>
+                                    </div> 
+                                </div>
+
+                                <div class="date-time row">
+                                    <div class="left">
+                                        <input type="date" id="eventDate" name="eventDate" required onclick="eventDateValidation()">
+                                    </div>
+                                
+                                    <div class="right">
+                                        <input type="time" id="eventTime" name="eventTime" required onclick="eventTimeValidation()">
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <label for="occassion">Occassion</label>
+                                    <span class="error" id="occassionError"></span>
+                                </div>
+                                <select id="occassion" name="occassion" required onclick="occassionValidation()">
+                                    <option value="default" selected disabled hidden>Select Occassion</option>
+                                    <option value="cancelreservation">Cancel Reservation</option>
+                                </select>
+
+                                <div class="row">
+                                    <label for="themeMotif">Theme Motif</label>
+                                    <span class="error" id="themeMotifError"></span>
+                                </div>
+                                <textarea id="themeMotif" name="themeMotif" required onkeyup="themeMotifValidation()"></textarea>
+
+                                <div class="row">
+                                    <label for="noPax">Number of PAX</label>
+                                    <span class="error" id="noPaxError"></span>
+                                </div>
+                                <input type="number" id="noPax" name="noPax" required onkeyup="noPaxValidation()">
+
+                                <div class="row">
+                                    <p>Type</p>
+                                    <span class="error" id="servingTypeError"></span>
+                                </div>
+                                <div class="type">
+                                    <div class="bp">
+                                        <div class="btn-radio left">
+                                            <input type="radio" id="buffet" name="servingType" value="buffet" required onclick="servingTypeValidation()">
+                                            <label for="buffet">Buffet</label>
+                                        </div>
+
+                                        <div class="btn-radio right">
+                                            <input type="radio" id="plated" name="servingType" value="plated" required onclick="servingTypeValidation()">
+                                            <label for="plated">Plated</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <p>Package</p>
+                                    <span class="error" id="catPackageError"></span>
+                                </div>
+                                <div class="package">
+                                    <ul class="package-wrapper">
+                                        <li class="package-container pt1">
+                                            <div class="package-padding">
+                                                <div class="package-content">
+                                                    <h3 class="package-title p1">
+                                                        PACKAGE
+                                                        <span class="package-type">&nbsp;EMERALD</span>
+                                                    </h3>
+                                
+                                                    <h4 class="package-price p1">
+                                                        <span class="p-sign">P</span>
+                                                        <span id="packagePrice">210</span> 
+                                                        <span class="p-pax">/ PAX</span>
+                                                    </h4>
+                                
+                                                    <ul>
+                                                        <li class="package-list">
+                                                            Entrée / Appetizer
+                                                            <span class="p-av p1 x"><i class="fas fa-times"></i>
+                                                                </i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Main Courses
+                                                            <span class="p-av p1 n">3</span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Rice
+                                                            <span class="p-av p1"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Softdrinks
+                                                            <span class="p-av p1"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            1 Dessert / Salad
+                                                            <span class="p-av p1"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <div class="btn-radio p1">
+                                                        <input type="radio" id="emerald" name="catPackage" value="emerald" onclick="catPackageValidation()" required> <!-- onclick="changePackage(0)" -->
+                                                        <label class="btn-1" for="emerald">SELECT</label>
+                                                    </div>
+                                
+                                                </div>
+                                            </div>
+                                        </li>
+                                
+                                        <li class="package-container pt2">
+                                            <div class="package-padding">
+                                                <div class="package-content">
+                                                    <h3 class="package-title p2">
+                                                        PACKAGE
+                                                        <span class="package-type">&nbsp;RUBY</span>
+                                                    </h3>
+                                
+                                                    <h4 class="package-price p2">
+                                                        <span class="p-sign">P</span>
+                                                        <span id="packagePrice">220</span>
+                                                        <span class="p-pax">/ PAX</span>
+                                                    </h4>
+                                
+                                                    <ul>
+                                                        <li class="package-list">
+                                                            Entrée / Appetizer
+                                                            <span class="p-av p2"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Main Courses
+                                                            <span class="p-av p2 n">3</span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Rice
+                                                            <span class="p-av p2"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Softdrinks
+                                                            <span class="p-av p2"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            1 Dessert / Salad
+                                                            <span class="p-av p2"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <div class="btn-radio p2">
+                                                        <input type="radio" id="ruby" name="catPackage" value="ruby" onclick="catPackageValidation()" required> <!-- onclick="changePackage(1)" -->
+                                                        <label class="btn-2" for="ruby">SELECT</label>
+                                                    </div>
+                                
+                                                </div>
+                                            </div>
+                                        </li>
+                                
+                                        <li class="package-container pt3">
+                                            <div class="package-padding">
+                                                <div class="package-content">
+                                
+                                                    <h3 class="package-title p3">
+                                                        PACKAGE
+                                                        <span class="package-type">&nbsp;SAPPHIRE</span>
+                                                    </h3>
+                                
+                                                    <h4 class="package-price p3">
+                                                        <span class="p-sign">P</span>
+                                                        <span id="packagePrice">240</span>
+                                                        <span class="p-pax">/ PAX</span>
+                                                    </h4>
+                                
+                                                    <ul>
+                                                        <li class="package-list">
+                                                            Entrée / Appetizer
+                                                            <span class="p-av p3"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                        <li class="package-list">
+                                                            Main Courses
+                                                            <span class="p-av p3 n">4</span>
+                                                        </li>
+                                                        <li class="package-list">Rice<span class="p-av p3"><i class="fas fa-check"></i></span></li>
+                                                        <li class="package-list">Softdrinks<span class="p-av p3"><i class="fas fa-check"></i></span></li>
+                                                        <li class="package-list">
+                                                            1 Dessert / Salad
+                                                            <span class="p-av p3"><i class="fas fa-check"></i></span>
+                                                        </li>
+                                                    </ul>
+                                
+                                                    <div class="btn-radio p3">
+                                                        <input type="radio" id="sapphire" name="catPackage" value="sapphire" onclick="catPackageValidation()" required> <!-- onclick="changePackage(2)" -->
+                                                        <label class="btn-3" for="sapphire">SELECT</label>
+                                                    </div>
+                                
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="content">
+                        <h2 class="sub-title-1">MENU DETAILS</h2>
+
+                        <div class="form-content">
+                                <div id="appetizerDiv" class="column">
+                                    <div class="row">
+                                        <label for="appetizer">Entrée / Appetizer</label>
+                                        <span class="error" id="appetizerError"></span>
+                                    </div>
+                                    <select id="appetizer" name="appetizer" required onclick="appetizerValidation()">
+                                        <option value="default" selected disabled hidden>Select an appetizer</option>
+                                        <option value="cancelreservation">Cancel Reservation</option>
+                                    </select>
+                                </div>
+                               
+
+                                <p>Main Courses</p>
+                                <div class="main-courses">
+                                    <div class="mc mc1">
+                                        <div class="column left">
+                                            <div class="row">
+                                                <label for="mainCourseCatOne">[1] Category</label>
+                                                <span class="error" id="mainCourseCatOneError"></span>
+                                            </div>
+                                            <select id="mainCourseCatOne" name="mainCourseCatOne" required onclick="mainCourseCatOneValidation()">
+                                                <option value="default" selected disabled hidden>Select a food category</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                        <div class="column right">
+                                            <div class="row">
+                                                <label for="mainCourseDishOne">[1] Dish Name</label>
+                                                <span class="error" id="mainCourseDishOne"></span>
+                                            </div>
+                                            <select id="mainCourseDishOne" name="mainCourseDishOne" required onclick="mainCourseDishOneValidation()">
+                                                <option value="default" selected disabled hidden>Select a dish</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mc mc2">
+                                        <div class="column left">
+                                            <div class="row">
+                                                <label for="mainCourseCatTwo">[2] Category </label>
+                                                <span class="error" id="mainCourseCatTwoError"></span>
+                                            </div>
+                                            <select id="mainCourseCatTwo" name="mainCourseCatTwo" onclick="mainCourseCatTwoValidation()" required>
+                                                <option value="default" selected disabled hidden>Select a food category</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                        <div class="column right">
+                                            <div class="row">
+                                                <label for="mainCourseDishTwo">[2] Dish Name</label>
+                                                <span class="error" id="mainCourseDishTwoError"></span>
+                                            </div>
+                                            <select id="mainCourseDishTwo" name="mainCourseDishTwo" required onclick="mainCourseDishTwoValidation()">
+                                                <option value="default" selected disabled hidden>Select a dish</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mc mc3">
+                                        <div class="column left">
+                                            <div class="row">
+                                                <label for="mainCourseCatThree">[3] Category</label>
+                                                <span class="error" id="mainCourseCatThreeError"></span>
+                                            </div>
+                                            <select id="mainCourseCatThree" name="mainCourseCatThree" onclick="mainCourseCatThreeValidation()" required>
+                                                <option value="default" selected disabled hidden>Select a food category</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                        <div class="column right">
+                                            <div class="row">
+                                                <label for="mainCourseDishThree">[3] Dish Name</label>
+                                                <span class="error" id="mainCourseDishThree"></span>
+                                            </div>
+                                            <select id="mainCourseDishThree" name="mainCourseDishThree" required onclick="mainCourseDishThreeValidation()">
+                                                <option value="default" selected disabled hidden>Select a dish</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="mc4" class="mc mc4">
+                                        <div class="column left">
+                                            <div class="row">
+                                                <label for="mainCourseCatFour">[4] Category</label>
+                                                <span class="error" id="mainCourseCatFourError"></span>
+                                            </div>
+                                            <select id="mainCourseCatFour" name="mainCourseCatFour" onclick="mainCourseCatFourValidation()" required>
+                                                <option value="default" selected disabled hidden>Select a food category</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Cancel Reservation</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="column right">
+                                            <div class="row">
+                                                <label for="mainCourseDishFour">[4] Dish Name</label>
+                                                <span class="error" id="mainCourseDishFourError"></span>
+                                            </div>
+                                            <select id="mainCourseDishFour" name="mainCourseDishFour" required onclick="mainCourseDishFourValidation()">
+                                                <option value="default" selected disabled hidden>Select a dish</option>
+                                                <option value="inquiry">Inquiry</option>
+                                                <option value="cancelreservation">Pancit Efuven with vegetables</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="row">
+                                    <label for="softdrinks">Softdrinks</label>
+                                    <span class="error" id="softdrinksError"></span>
+                                </div>
+                                <select id="softdrinks" name="softdrinks" required onclick="softdrinksValidation()">
+                                    <option value="inquiry" selected>Inquiry</option>
+                                    <option value="cancelreservation">Cancel Reservation</option>
+                                </select>
+
+                                <div class="row">
+                                <label for="desertSalad">Desert / Salad</label>
+                                    <span class="error" id="desertSaladError"></span>
+                                </div>
+                                <select id="desertSalad" name="desertSalad" required onclick="desertSaladValidation()">
+                                    <option value="inquiry" selected>Inquiry</option>
+                                    <option value="cancelreservation">Cancel Reservation</option>
+                                </select>
+                            </div>
+
+                    </div>
+
+                    <hr>
+                    <div class="content">
+                        <h2 class="sub-title-1">PAYMENT INFORMATION</h2>
+                        <div class="form-content row">
+                            <div class="paynum column">
+                                <div class="menu-order">
+                                    <span class="title2">MENU ORDER DETAILS :</span>
+                                    <div id="appetizerDiv2" class="md course-menu">
+                                        <span class="cellOne">Entrée / Appetizer : </span>
+                                        <div class="cell2">
+                                            <span id="popAppetizer" class="answer">EMERALD</span>
+                                        </div>
+                                    </div>
+                                    <!-- style="margin-bottom: 0px;" -->
+                                    <div class="course-main" >
+                                        <span class="cellOne">Main Courses : </span>
+                                    </div>
+
+                                    <div class="md course-main m1">
+                                        <span class="cellOne mc">[1] <span id="popMainCourseCatOne">Food Menu</span> : </span>
+                                        <div class="cell2">
+                                            <span id="popMainCourseDishOne" class="answer">Pancit Efuven with vegetables</span>
+                                        </div>
+                                    </div>
+                                    <div class="md course-main m2">
+                                        <span class="cellOne mc">[2] <span id="popMainCourseCatTwo">Vegetable Menu</span> :</span>
+                                        <div class="cell2">
+                                            <span id="popMainCourseDishTwo" class="answer">Buttered sauteed mixed vegetables</span>
+                                        </div>
+                                    </div>
+                                    <div class="md course-main m3">
+                                        <span class="cellOne mc">[3] <span  id="popMainCourseCatThree">Main Course</span> :</span>
+                                        <div class="cell2">
+                                            <span id="popMainCourseDishThree" class="answer">EMERALD</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="mc42" class="md course-main m4">
+                                        <span class="cellOne mc">[4] <span id="popMainCourseCatFour">Main Course</span> :</span>
+                                        <div class="cell2">
+                                            <span id="popMainCourseDishFour" class="answer">EMERALD</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="md softdrinks">
+                                        <span class="cellOne">Softdrinks : </span>
+                                        <div class="cell2">
+                                            <span id="popSoftdrinks" class="answer">EMERALD</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="md desert-salad">
+                                        <span class="cellOne">Desert / Salad :  </span>
+                                        <div class="cell2">
+                                            <span id="popDesertSalad" class="answer">EMERALD</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="payinfo column">
+                                    <span class="title2">PAYMENT DETAILS :</span>
+                                    <div class="payi p-name">
+                                        <span class="cellOne">Package Name :</span>
+                                        <div class="cell2">
+                                            <span class="answer">
+                                                <span id="popCatPackage">EMERALD</span>
+                                                =
+                                                <span id="popPackagePrice">200</span>
+                                                / Pax
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payi num-pax">
+                                        <span class="cellOne">Number of Pax :</span>
+                                        <div class="cell2">
+                                            <span class="answer">
+                                                <span id="popNoPax">50</span>
+                                                Pax
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payi total">
+                                        <span class="cellOne">Total : </span>
+                                        <div class="cell2">
+                                            <span class="answer">
+                                                <span id="popPackagePrice2">200</span>
+                                                X
+                                                <span id="popNoPax2"> 50 </span>
+                                                =
+                                                <span id="popTotal">21312</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payi mop">
+                                        <span class="cellOne">Mode of Payment: </span>
+                                        <div class="cell2">
+                                            <div class="column">
+                                                <span style="padding-left: 0;" class="" id="modePayError"></span>
+                                                <select id="modePay" name="modePay" onchange="changeMode()" required>
+                                                    <option value="bank">BANK TO BANK</option>
+                                                    <option value="pera">PERA PADALA</option>
+                                                    <option value="cash" selected>CASH</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="bank" class="payi bnum" style="display: none;">
+                                        <span class="cellOne">BANK NUMBER: </span>
+                                        <div class="cell2">
+                                            <span class="answer">200</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="pera" class="payi pnum " style="display: none;">
+                                        <span class="cellOne">PALAWAN NUMBER: </span>
+                                        <div class="cell2">
+                                            <span class="answer">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <input type="submit" id="nxtbtnStageFour">
+
+
+
+                 </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section brandname">
+                <div class="wrapper">
+                    <div class="container">
+                        <a href="index.html" class="logo"><img src="assets/img/logo/logo2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section navbar">
+                <div class="wrapper">
+                    <h2 class="sup-title">QUICK LINKS</h2>
+                    <div class="container">
+                        <ul>
+                            <li><a href="index.html" class="">HOME</a></li>
+                            <li><a href="menu.html" class="">MENU</a></li>
+                            <li><a href="gallery.html" class="">GALLERY</a></li>
+                            <li><a href="schedules.html" class="">SCHEDULES</a></li>
+                            <li><a href="about-us.html" class="">ABOUT US</a></li>
+                            <li><a href="contact-us.html" class="">CONTACT US</a></li>
+                            <li><a href="terms-and-condition.html" class="">TERMS AND CONDITION</a></li>
+                            <li><a href="" class="">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section info">
+                <div class="wrapper">
+                    <h2 class="sup-title">INFO DETAILS</h2>
+                    <div class="container">                 
+                        <div class="contact-info">
+                            <table class="center">
+                                <tr>
+                                    <td class="icon"><i class="fas fa-map-marker-alt"></i></td>
+                                    <td class="data"> <span>New Year St., EJ. Blanco Dr, Dumaguete City</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="icon"><i class="fas fa-phone"></i></td>
+                                    <td class="data"> <span>09123123123 / 01231231123</span> </td>
+                                </tr>
+                                <tr>    
+                                    <td class="icon"><i class="fab fa-facebook-f"></i></td>
+                                    <td class="data"> <span>fb.com/remmamycs</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="icon"><i class="fas fa-envelope"></i></td>
+                                    <td class="data"> <span>remmamycs@gmail.com</span> </td>
+                                </tr>
+        
+                            </table>
+                        </div>
+        
+                        <div class="social-info">
+                            <a href="https://www.facebook.com/Remmamy-Catering-106272454237069"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-copyright">
+            copyright &copy; 2020 | MASTER EZY
+        </div>
+    </footer>
+
+    <div id="topBtn" class="topBtn"><i class="fas fa-arrow-up"></i></div>
+    
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/js/lightbox-plus-jquery.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booknow.js"></script>
+</body>
+</html>

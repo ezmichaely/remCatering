@@ -1,0 +1,530 @@
+
+
+/* --- INDEX.HTML --- */
+main#index {
+    .site-title {
+        background-image: url("../../img/bg/bg1.jpg");
+        min-height: 88.2vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        display: table;
+        
+        .site-background {
+            display: table-cell;
+            vertical-align: middle;
+            
+            h1 {
+                margin-top: -20px;
+                margin-bottom: 40px;
+                text-shadow:
+                    -1px -1px 0 #fff,
+                    0   -1px 0 #fff,
+                    1px -1px 0 #fff,
+                    1px  0   0 #fff,
+                    1px  1px 0 #fff,
+                    0    1px 0 #fff,
+                    -1px  1px 0 #fff,
+                    -1px  0   0 #fff;
+            }
+
+            a {
+                font-family: $fonarto;
+                font-size: 22px;
+                color: $primaryDark;
+                background-color: white;
+                border: 2px solid $primaryAccent;
+                border-radius: 5px;
+                padding: 5px 10px;
+
+                &:hover {
+                    color: white;
+                    background-color: $primaryAccent;
+                    border: 2px solid $primary;
+                }
+            }
+        }
+    }
+
+    .site-package {
+        z-index: 1000;
+        display: block;
+        margin: 50px 0;
+
+        .package-wrapper {
+            display: flex;
+            justify-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: center;
+            margin: 20px 5%;
+            margin-bottom: 10px;
+            // border: 1px solid red;
+
+            .package-container {
+                margin: 20px auto;
+                padding-bottom: 20px;
+
+                .package-padding {
+                    min-width: 280px;
+                    height: 422px;
+                    margin: auto 15px;
+                    border-radius: 15px;
+                    box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.8);
+
+                    .package-content {
+                        height: 100%;
+                        width: 100%;
+                        position: relative;
+                        // border: 1px solid red;
+                        
+                        .package-title {
+                            &.p1 {
+                                background-image: url(../../img/bg/pt1.png);
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: bottom;
+                            }
+    
+                            &.p2 {
+                                background-image: url(../../img/bg/pt2.png);
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: bottom;
+                            }
+    
+                            &.p3 {
+                                background-image: url(../../img/bg/pt3.png);
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: bottom;
+                            }
+                        }
+
+                        .package-title {
+                            line-height: 70px;
+                            // padding-top: 10px;
+                            padding-bottom: 30px;
+                            font-family: $roboto;
+                            font-weight: 500;
+                            font-size: 25px;
+                            color: white;
+                            border-top-left-radius: 15px;
+                            border-top-right-radius: 15px; 
+                            border-bottom: 2px solid white; 
+                        
+                            .package-type {
+                                font-family: $fonarto;
+                                font-weight: 500;
+                                font-size: 25px;
+                                text-shadow: 2px 0px 3px #2B130B;
+                            }
+                        }
+
+                        .package-price {
+                            margin-top: -10px;
+                            margin-bottom: 15px;
+                            padding:0;
+                            font-size: 35px;
+
+                            &.p1 {
+                                color: $green;
+                            }
+
+                            &.p2 {
+                                color: $orange;
+                            }
+
+                            &.p3 {
+                                color: $blue;
+                            }
+
+                            .p-sign {
+                                font-size: 20px;
+                            }
+
+                            .p-pax {
+                                font-size: 20px;
+                                color: $blackLight;
+                            }
+                            
+
+                        }
+
+                        .package-list {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 8px;
+                            margin: 0 30px;
+                            font-family: $robotom;
+                            font-size: 18px;
+
+                            span {
+                                text-align: center;
+                                
+                                &.p-av {
+                                    justify-content: center;
+                                }
+
+                                &.n {
+                                    padding-right: 2px;
+                                    font-size: 19px;
+                                    font-weight: 900;
+                                }
+
+
+                                &.x {
+                                    color: $red !important;
+                                }
+
+                                &.p1 {
+                                    color: $green;
+                                }
+
+                                &.p2 {
+                                    color: $orange;
+                                }
+
+                                &.p3 {
+                                    color: $blue;
+                                }
+                            }
+                        }
+                        
+                        a {
+                            margin-top: 5px;
+                            padding: 10px;
+                            display: block;
+                            // font-family: $robotom;
+                            // border: 1px solid red;
+                            
+                            &.p1 {
+                                border-top: 3px solid $green;
+                            }
+
+                            &.p2 {
+                                border-top: 3px solid $orange;
+                            }
+
+                            &.p3 {
+                                border-top: 3px solid $blue;
+                            }
+
+                            .btn {
+                                padding: 10px 20px;
+                                color: white;
+                                border-radius: 3px;
+                                font-size: 16px;
+                                font-family: $robotom;
+
+                                &.btn-1 {
+                                    background: $green;
+                                    border: 2px solid $green;
+                                }
+
+                                &.btn-2 {
+                                    background: $orange;
+                                    border: 2px solid $orange;
+                                }
+
+                                &.btn-3 {
+                                    background: $blue;
+                                    border: 2px solid $blue;
+                                }
+
+                                &:hover {
+                                    border: 2px solid $blackLight;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+
+                
+            }
+        }
+    }
+    
+    .site-aboutus {
+        // display: flex;
+        z-index: 999;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12%;
+        min-height: 80vh;
+        height: 90vh;
+
+        
+        background-image: url("../../img/bg/bg2.png");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+
+        .container {
+            width: 50%;
+            padding: 30px 0;
+            // border: 1px solid red;
+
+            .about-us {
+                margin-top: -20px !important;
+                margin-bottom: 30px;
+            }
+
+            p {
+                line-height: 150%;
+                font-size: 20px;
+                color: $primaryAccent;
+                font-family: $robotom;
+                background-color: rgba(255,255,255,0.6);
+                border-radius: 10px;
+                text-align: left;
+                text-indent: 40px;
+                padding: 20px;
+            }
+
+            .readmore {
+                margin-top: 50px; 
+                text-align: center;
+                display: block;
+
+                .btn {
+                    font-family: $fonarto;
+                    font-size: 18px;
+                    color: white;
+                    background-color: $primaryAccent;
+                    border: 2px solid white;
+                    border-radius: 4px;
+                    padding: 10px 15px;
+
+                    &:hover {
+                        color: $primaryAccent;
+                        background-color: white;
+                        border: 2px solid $primaryAccent;
+                    }
+                }
+                
+            }
+        }
+
+        .blank-space {
+            background-color: red transparent;
+            width: 50%;
+        }
+    }
+
+    .site-gallery {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 5%;
+        padding-bottom: 30px;
+        background-color: red transparent !important;
+
+        .container {
+            text-align: center;
+
+            .site-gallery-wrapper {
+                    width: 95%;
+                    margin: 20px auto;
+                    padding: 8px;
+                    background-color: $primary;
+
+                .content {
+                    display: grid;
+                    grid-auto-flow: dense;
+                    grid-gap: 8px;
+                
+                    .box {
+                        position: relative;
+                        background-color: $primaryAccent;
+                        border: 1px solid white;
+                        overflow: hidden;
+    
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            cursor: pointer;
+
+                            &:hover {
+                                transform: scale(1.2);
+                            }
+                        }
+    
+                        &.a {
+                            grid-row: span 2;
+                        }
+    
+                        &.b, &.f, &.h, &.j  {
+                            grid-column: span 2;
+                        }
+                    }
+                }
+
+                .see-more {
+                    margin-top: 14px;
+                    margin-bottom: 6px; 
+                    text-align: center;
+                    display: block;
+
+                    .btn {
+                        font-family: $robotom;
+                        font-size: 16px;
+                        color: white;
+                        background-color: $primaryAccent;
+                        border: 2px solid white;
+                        border-radius: 3px;
+                        padding: 5px 10px;
+                        padding-top: 2px;
+
+                        &:hover {
+                            color: $primaryAccent;
+                            background-color: white;
+                            border: 2px solid $primaryAccent;
+                        }
+                    }                
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 992px) {
+    main#index {
+
+        .site-title {
+            .site-background {
+                padding: 0 10%;
+    
+                h1 {
+                    font-size: 80px !important;
+                }
+            }
+        }
+        
+        .site-aboutus {
+            
+            
+            .blank-space {
+                width: 0;
+                display: none;
+            }
+        }
+    
+        .site-gallery {
+            .container {
+                .site-gallery-wrapper {
+                    .content {
+                            grid-template: "1fr 1fr 1fr 1fr 1fr" 20vh
+                                        "1fr 1fr 1fr 1fr 1fr" 20vh
+                                        "1fr 1fr 1fr 1fr 1fr" 20vh;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    main#index {
+        .site-title {
+            .site-background {
+                padding: 0 5%;
+        
+                h1 {
+                    font-size: 60px !important;
+                }
+            }
+        }
+        
+        .site-aboutus {
+            display: block;
+    
+            .container {
+                display: block;
+                width: 100% !important;
+    
+                // border: 1px solid red;
+                p {
+                    margin-right: 0px;
+                    padding: 20px;
+                } 
+    
+                .readmore{
+                    margin-right: 0px !important;
+                }
+            }
+            
+            .blank-space {
+                display: none;
+                width: 0;
+            }
+        }
+    
+        .site-gallery {
+            .container {
+                .site-gallery-wrapper {
+                    .content {
+                        grid-template: "1fr 1fr 1fr" 200px
+                                        "1fr 1fr 1fr" 200px
+                                        "1fr 1fr 1fr" 200px
+                                        "1fr 1fr 1fr" 200px
+                                        "1fr 1fr 1fr" 200px;
+                        
+                        .box{
+                            &.g  {
+                                grid-column: span 2 !important;
+                            }
+        
+                            &.h {
+                                grid-column: span 1 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    main#index {
+
+        .site-title {
+            .site-background {
+                padding: 0 3%;
+            }
+        }
+    
+        .site-gallery {
+            .container {
+                .site-gallery-wrapper {
+                    .content {
+                        grid-template: "1fr 1fr" 200px
+                                        "1fr 1fr" 200px
+                                        "1fr 1fr" 200px
+                                        "1fr 1fr" 200px
+                                        "1fr 1fr" 200px
+                                        "1fr 1fr" 200px
+                                        "1fr 1fr" 200px;
+                        
+                        .box{
+                            &.g  {
+                                grid-column: span 1 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- END OF INDEX.HTML --- */
+

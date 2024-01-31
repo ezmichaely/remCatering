@@ -1,0 +1,139 @@
+/* -- ALBUM VIEW -- */
+main#album-view {
+    width: 100%;
+    height: auto;
+
+    background-image: url("../../img/bg/bg5.jpg");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: auto;
+
+    .album-view {
+        // border: 1px solid red;
+
+        .container {
+            padding-bottom: 30px;
+            
+            .content {
+                width: 90%;
+                margin: 20px auto;
+                background-color: $whiteDark;
+                border-radius: 10px;
+                
+                .tree {
+                    // border: 1px solid red;
+                    display: block;
+                    padding: 20px;
+                    font-size: 16px;
+                    font-family: $roboto;
+                    font-weight: 500;
+                    color: $blackLight;
+
+                    a, span {
+                        padding: 3px;
+                        color: $blackLight;
+                    }
+
+                    a:hover {
+                        color: $primaryAccent;
+                        // text-decoration: underline;
+                    }
+                }
+
+                .cover {
+                    padding: 0;
+                    margin: 0;
+                    display: block;
+                    width: 100%;
+                    height: 200px;
+                    position: relative;
+                    overflow: hidden;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .album-name {
+                    display: block;
+                    font-family: $fonarto;
+                    font-size: 26px;
+                    padding: 10px 20px;
+                    color: $primaryAccent;
+                    // border: 1px solid red;
+                }
+
+                .info {
+                    padding: 0 20px;
+                    display: flex;
+                    justify-items: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+
+                    p {
+                        // padding-right: 10px;
+                        font-size: 14px;
+                        font-weight: 500;
+
+                        i {
+                            padding-right: 2px;
+                        }
+                    }
+
+                    .fa-circle {
+                        padding: 0 10px;
+                        font-size: 4px;
+
+                    }
+                }
+
+                .gallery-photos {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    grid-gap: 15px;
+                    grid-auto-flow: dense;
+                    padding: 20px;
+
+                    .box {
+                        border-radius: 5px;
+                        height: 220px;
+                        position: relative;
+                        overflow: hidden;
+                        border: 2px solid $primaryDark;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            padding-top: calc(100% / (16/10));
+                        }
+
+                        img {
+                            border-radius: 5px;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            transform: scale(1.1);
+
+                            &:hover {
+                                transform: scale(1.4);
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+    }
+
+}

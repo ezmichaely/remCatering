@@ -1,0 +1,383 @@
+/* --- ABOUT-US.HTML --- */
+main#about-us {
+    .site-aboutus {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 100vh;
+        display: block;
+        padding-bottom: 30px;
+
+        .container-about-us {
+            width: 100%;
+            min-height: 102vh;
+            background-image: url("../../img/bg/bg2.png");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .aboutus-content {
+                margin: 20px 0;
+                background-color: rgba(255,255,255,0.7);
+                border-radius: 10px;
+                // border: 1px solid red;
+
+                p {
+                    line-height: 150%;
+                    font-size: 20px;
+                    color: $primaryAccent;
+                    font-family: $robotom;
+                    text-align: left;
+                    text-indent: 40px;
+                    padding: 10px 20px;
+                    margin-right: 0px;
+                }
+            }
+        }        
+
+        .container-owner {
+            color: white;
+            // margin-top: 20px;
+
+            height: 85vh;
+            position: relative;
+            overflow: hidden;
+
+            background: rgb(49,98,195);
+            background: linear-gradient(45deg, rgba(49,98,195,1) 0%,
+                        rgba(25,50,99,1) 35%, rgba(25,50,99,1) 65%,
+                        rgba(49,98,195,1) 100%);
+
+            
+            .white-line {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                height: 5px;
+                background-color: white;
+
+                &.bot {
+                    width: 95%;
+                    position: absolute;
+                    bottom: 15vh;
+                    right: 0;
+                    z-index: 1001;
+                }
+                
+            }
+
+            .top-place {
+                z-index: 999;
+                width: 100%;
+                margin-top: 3vh;
+                margin-left: 5%;
+                height: 10vh;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                // border: 1px solid red;
+
+                .quote-sign {
+                    img {
+                        display: block; 
+                    }
+                }
+
+                .top {
+                    margin-left: 3%;
+                    margin-right: 0;
+                    width: 100%;
+                }
+            }
+            
+            .mid-place {
+                z-index: 1000;
+                margin-top: -10vh;
+                margin-left: 5%;
+                display: flex;
+                justify-content: space-between;
+                height: 100%;
+
+                .quote-word {
+                    color: white;
+                    margin-top: 10vh;
+                    margin-right: 3%;
+                    font-family: $fonarto;
+                    font-size: 36px;
+                    text-align: left;
+                }
+
+                .owner-image {
+                    img {
+                        z-index: 999;
+                        height: 67vh;
+                    }
+
+                }
+            }
+
+            .bot-place {
+                margin-left: 5%;
+
+                .owner-name {
+                    font-size: 35px;
+                    color: $primary;
+                }
+
+                .owner-title {
+                    font-family: $roboto;
+                    font-size: 18px;
+                    color: white;
+                }
+            }
+
+        }
+
+        .container-services {
+            margin: 50px auto;
+            margin-bottom: 0 !important;
+            width: 90%;
+            text-align: center;
+            // background: $whiteDark;
+
+            .services-content {
+                margin-top: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-wrap: wrap; 
+                align-content: stretch;
+                text-align: center;
+
+                div {
+                    text-align: center;
+                }
+
+                .box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    margin: 10px 5px;
+                    position: relative;
+                    height: 200px;
+                    border: 2px solid $primary;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+                    position: relative;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        cursor: pointer;
+                        border-radius: 9px;
+                        overflow: hidden;
+                    }
+
+                    span {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        font-family: $fonarto;
+                        color: white;
+                        padding: 8px 10px;
+                        background-color: $primaryAccent;
+                        border-radius: 5px;
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+@media all and (min-width: 992px) { 
+    main#about-us {
+        .site-aboutus {
+            .container-about-us{
+                padding: 50px 15%;
+                padding-top: 0 !important;
+            }
+
+            .container-owner {
+                .top-place {
+                    .quote-sign {
+                        img {
+                            height: 8vh;
+                        }
+                    }
+                }
+
+                .mid-place {
+                    .quote-word {
+                        margin-top: 11.5vh;
+                        margin-right: 5%;
+                        font-size: 2.42em;
+                    }
+
+                    .owner-image {
+                        img {
+                            margin-right: 0; 
+                        }
+                    }
+                }
+            }
+
+            .container-services {
+                .services-content {
+                    .box {
+                        width: 32%;
+                    }
+                }
+            }
+    
+        }
+
+    }
+}
+
+@media only screen and (max-width: 992px) {  
+    main#about-us {
+        .site-aboutus {
+            .container-about-us{
+                padding: 50px 8%;
+                padding-top: 0 !important;
+            }
+
+            .container-owner {
+                .top-place {
+                    .quote-sign {
+                        img {
+                            height: 7vh;
+                        }
+                    }
+                }
+
+                .mid-place {
+                    .quote-word {
+                        margin-top: 9vh;
+                        margin-right: 0;
+                        font-size: 2.03rem;
+                    }
+
+                    .owner-image {
+                        img {
+                            margin-right: -50px; 
+                        }
+                    }
+                }
+
+            }
+
+            .container-services {
+                .services-content {
+                    .box {
+                        width: 48%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    main#about-us {
+        .site-aboutus {
+            padding-top: 0 !important;
+            .container-owner {
+                .top-place {
+                    .quote-sign {
+                        img {
+                            height: 5vh;
+                        }
+                    }
+                }
+
+                .mid-place {
+                    .quote-word {
+                        margin-top: 8vh;
+                        margin-right: 0;
+                        font-size: 1.7rem;
+                    }
+
+                    .owner-image {
+                        img {
+                            margin-right: -100px; 
+                        }
+                    }
+                }
+            }
+
+            .container-services {
+                .services-content {
+                    .box {
+                        width: 100%;
+                    }
+                }
+            }
+                           
+        }
+        
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    main#about-us {
+        .site-aboutus {
+            .container-about-us{
+                padding: 50px 5%;
+                padding-top: 0 !important;
+            }
+
+            .container-services {
+                .services-content {
+                    .box {
+                        width: 100%;
+                    }
+                }
+            }  
+
+            .container-owner {
+                .top-place {
+                    .quote-sign {
+                        img {
+                            height: 5vh;
+                        }
+                    }
+                }
+
+                .mid-place {
+                    .quote-word {
+                        margin-top: 8vh;
+                        margin-right: 0;
+                        font-size: 1.7rem;
+                    }
+
+                    .owner-image {
+                        img {
+                            margin-right: -140px; 
+                        }
+                    }
+                }
+            }
+                           
+        }
+        
+    }
+}
+
+/* --- END OF ABOUT-US.HTML --- */
+

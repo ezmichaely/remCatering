@@ -1,0 +1,741 @@
+main#booknow {
+    width: 100%;
+    min-height: 60vh !important;
+
+    background-image: url("../../img/bg/bg5.jpg");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: auto;
+
+    .flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+
+        // padding-bottom: 30px;
+
+        .wrapper {
+            // border: 1px solid brown;
+            width: 90%;
+            display: block;
+            margin: 20px auto;
+
+            #reservation-form {
+                display: block;
+                background-color: $whiteDark;
+                border-radius: 10px;
+                width: 100%;
+                padding: 20px;
+                padding-top: 15px;
+                // border: 1px solid blue;
+
+                display: flex;
+                flex-flow: column;
+                flex-wrap: wrap;
+
+                // #stageTwo, #stageThree, #stageFour {
+                //     // display: none;
+                //     // visibility: hidden;
+                // }
+
+                #appetizerDiv,
+                #mc4,
+                #appetizerDiv2,
+                #mc42 {
+                    display: none;
+                }
+
+                span.error {
+                    padding-left: 25px;
+                    font-family: $robotob;
+                    font-size: 14px;
+                    display: flex;
+                    // border: 1px solid red;
+
+                    &.invalid {
+                        color: $red;
+                    }
+
+                    &.valid {
+                        color: $green;
+                    }
+                }
+
+                .content-tab {
+                    .sub-title-1 {
+                        margin-bottom: 10px;
+                        color: $blackLight;
+                    }
+
+                    .form-content {
+                        // border: 1px solid red;
+                        width: 100%;
+                        border-radius: 10px;
+                        font-size: 18px;
+                        display: flex;
+                        flex-flow: column;
+
+                        label,
+                        span,
+                        p {
+                            margin-bottom: 2px;
+                            // font-weight: 500;
+                            font-family: $robotob;
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        /* Firefox */
+                        input[type=number] {
+                            -moz-appearance: textfield;
+                        }
+
+                        input,
+                        select,
+                        option,
+                        textarea {
+                            word-wrap: wrap;
+                            padding: 10px;
+                            margin-bottom: 15px;
+                            font-size: 18px;
+                        }
+
+                        option {
+                            font-size: 22px;
+                        }
+
+                        textarea {
+                            min-height: 100px;
+                            height: auto;
+                            font-family: $roboto;
+                            resize: none;
+                        }
+
+                        .iagree {
+                            // border: 1px solid red;
+                            padding: 5px 0;
+                            margin-bottom: 10px;
+                            display: flex;
+                            // flex-wrap: wrap;
+                            // justify-content: space-around;
+                            align-items: center;
+                            flex-direction: row;
+
+                            input[type=checkbox] {
+                                margin-right: 10px;
+                                margin-top: 5px;
+                                margin-bottom: 0px;
+                                // padding: 0;
+                            }
+
+                            label {
+                                margin: 0;
+                                font-family: $roboto;
+
+                                a {
+                                    font-family: $robotob;
+                                    color: $primaryAccent;
+
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+
+                        .date-time {
+                            input {
+                                width: 100%;
+                                font-family: $robotom;
+                            }
+
+                            .left,
+                            .right {
+                                display: flex;
+                                flex-direction: row;
+                                width: 48%;
+                            }
+
+                            .left {
+                                margin-right: 2%;
+                            }
+
+                            .right {
+                                margin-left: 2%;
+                            }
+                        }
+
+                        .type {
+                            display: flex;
+                            flex-direction: column;
+
+                            .bp {
+                                display: flex;
+                                flex-direction: row;
+                                margin-bottom: 10px;
+                                margin-top: 3px;
+
+                                div {
+                                    width: 48%;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-direction: column;
+                                    text-align: center;
+
+
+                                    &.left {
+                                        margin-right: 2%;
+                                    }
+
+                                    &.right {
+                                        margin-left: 2%;
+                                    }
+
+                                    input[type="radio"] {
+                                        display: none;
+                                    }
+
+                                    label {
+                                        display: inline-block;
+                                        padding: 10px 20px;
+                                        cursor: pointer;
+                                        border-radius: 3px;
+                                        font-size: 16px;
+                                        font-family: $robotom;
+                                        border: 2px solid white;
+                                        // border: 1px solid red;
+                                        // line-height: 40px;
+                                        // color: $primaryAccent;
+                                        background-color: white;
+                                        border-radius: 3px;
+                                    }
+
+                                    input[type="radio"]:checked+label {
+                                        border: 2px solid $blackLight;
+                                        color: white;
+                                        background-color: $primaryAccent;
+                                        // line-height: 40px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .package {
+                            margin-top: 10px;
+
+                            .package-wrapper {
+                                display: flex;
+                                justify-items: center;
+                                justify-content: space-around;
+                                flex-wrap: wrap;
+                                text-align: center;
+
+
+                                .package-container {
+                                    padding-bottom: 20px;
+
+                                    .package-padding {
+                                        text-align: center;
+                                        width: 280px;
+                                        height: 442px;
+                                        border-radius: 15px;
+                                        box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.8);
+                                        background: white;
+
+                                        .package-content {
+                                            height: 100%;
+                                            width: 100%;
+                                            position: relative;
+                                            // border: 1px solid red;
+
+                                            .package-title {
+                                                background-repeat: no-repeat;
+                                                background-size: cover;
+                                                background-position: bottom;
+                                                &.p1 {
+                                                    background-image: url(../../img/bg/pt1.png);
+                                                }
+
+                                                &.p2 {
+                                                    background-image: url(../../img/bg/pt2.png);
+                                                }
+
+                                                &.p3 {
+                                                    background-image: url(../../img/bg/pt3.png);
+                                                }
+                                            }
+
+                                            .package-title {
+                                                line-height: 70px;
+                                                // padding-top: 10px;
+                                                padding-bottom: 30px;
+                                                font-family: $robotob;
+                                                font-weight: 500;
+                                                font-size: 25px;
+                                                color: white;
+                                                border-top-left-radius: 15px;
+                                                border-top-right-radius: 15px;
+                                                border-bottom: 2px solid white;
+
+                                                .package-type {
+                                                    font-family: $fonarto;
+                                                    font-weight: 500;
+                                                    font-size: 25px;
+                                                    text-shadow: 2px 0px 3px #2B130B;
+                                                }
+                                            }
+
+                                            .package-price {
+                                                // margin-top: -10px;
+                                                margin-bottom: 15px;
+                                                padding: 0;
+                                                font-size: 35px;
+
+                                                #packagePrice {
+                                                    font-family: $title-font;
+                                                }
+
+                                                &.p1 {
+                                                    color: $green;
+                                                }
+
+                                                &.p2 {
+                                                    color: $orange;
+                                                }
+
+                                                &.p3 {
+                                                    color: $blue;
+                                                }
+
+                                                .p-sign {
+                                                    font-size: 20px;
+                                                    font-family: $robotob;
+                                                }
+
+                                                .p-pax {
+                                                    font-size: 20px;
+                                                    color: $blackLight;
+                                                    font-family: $robotob;
+                                                }
+
+                                            }
+
+                                            .package-list {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                padding: 8px;
+                                                margin: 0 30px;
+                                                font-family: $robotom;
+                                                font-size: 18px;
+
+                                                span {
+                                                    text-align: center;
+
+                                                    &.p-av {
+                                                        justify-content: center;
+                                                    }
+
+                                                    &.n {
+                                                        padding-right: 2px;
+                                                        font-size: 19px;
+                                                        font-weight: 900;
+                                                    }
+
+
+                                                    &.x {
+                                                        color: $red !important;
+                                                    }
+
+                                                    &.p1 {
+                                                        color: $green;
+                                                    }
+
+                                                    &.p2 {
+                                                        color: $orange;
+                                                    }
+
+                                                    &.p3 {
+                                                        color: $blue;
+                                                    }
+                                                }
+                                            }
+
+                                            .btn-radio {
+                                                margin-top: 5px;
+                                                padding: 10px;
+                                                display: block;
+
+                                                &.p1 {
+                                                    border-top: 3px solid $green;
+                                                }
+
+                                                &.p2 {
+                                                    border-top: 3px solid $orange;
+                                                }
+
+                                                &.p3 {
+                                                    border-top: 3px solid $blue;
+                                                }
+
+                                                input[type="radio"] {
+                                                    display: none;
+                                                }
+
+                                                label {
+                                                    display: inline-block;
+                                                    padding: 10px 20px;
+                                                    cursor: pointer;
+                                                    color: white;
+                                                    border-radius: 3px;
+                                                    font-size: 16px;
+                                                    font-family: $robotom;
+
+                                                    &.btn-1 {
+                                                        background: $green;
+                                                        border: 2px solid $green;
+                                                    }
+
+                                                    &.btn-2 {
+                                                        background: $orange;
+                                                        border: 2px solid $orange;
+                                                    }
+
+                                                    &.btn-3 {
+                                                        background: $blue;
+                                                        border: 2px solid $blue;
+                                                    }
+
+                                                    &:hover {
+                                                        border: 2px solid $blackLight;
+                                                    }
+                                                }
+
+                                                input[type="radio"]:checked+label {
+                                                    border: 2px solid $blackLight;
+                                                }
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                        .main-courses {
+                            display: flex;
+                            flex-direction: column;
+                            background-color: rgba(black, 0.1);
+                            border: 1px solid $whiteDark;
+                            border-radius: 5px;
+                            padding: 10px;
+                            padding-bottom: 0px;
+                            margin-bottom: 15px;
+                            // border: 1px solid red;
+
+                            .mc {
+                                display: flex;
+                                flex-direction: row;
+
+                                .column {
+                                    width: 48%;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-direction: column;
+                                    text-align: left;
+
+                                    &.left {
+                                        margin-right: 2%;
+                                        // border: 1px solid red;
+                                    }
+
+                                    &.right {
+                                        text-align: left !important;
+                                        margin-left: 2%;
+                                    }
+                                }
+                            }
+                        }
+
+                        .paynum {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            // border: 1px solid brown;
+
+                            .title2 {
+                                font-family: $robotob;
+                                font-size: 20px;
+                                color: $primaryAccent;
+                                margin-bottom: 10px;
+                            }
+
+                            .menu-order {
+                                order: 1;
+                                width: 48%;
+                                margin-right: 2%;
+                                display: flex;
+
+                                flex-direction: column;
+                                text-align: left;
+                                // border: 1px solid red;
+
+                                .md {
+                                    display: flex;
+                                    flex-direction: row;
+                                    margin-bottom: 15px;
+
+                                    &.course-main {
+                                        padding-left: 10px;
+                                    }
+
+                                    span.cellOne {
+                                        min-width: 200px;
+                                        word-wrap: break-word;
+                                        overflow-wrap: break-word;
+
+                                        &.mc {
+                                            min-width: 190px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .payinfo {
+                                order: 2;
+                                width: 48%;
+                                margin-left: 2%;
+                                display: flex;
+                                flex-direction: column;
+                                text-align: left;
+                                // border: 1px solid red;
+
+                                .payi {
+                                    // border: 1px solid red;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-direction: row;
+                                    margin-bottom: 15px;
+                                    // line-height: 30px;
+
+                                    select {
+                                        margin-bottom: 0px !important;
+                                        width: 200px;
+                                    }
+
+                                    span.cellOne {
+                                        width: 200px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                hr {
+                    border-top: 2px solid $primaryAccent;
+                    margin-bottom: 15px;
+                }
+
+                .bottom {
+                    // border: 1px solid red;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .button-step {
+                        text-align: right;
+                    }
+
+                    .circle-step {
+                        width: 50%;
+                        // border: 1px solid red;
+                        text-align: right;
+                    }
+
+                    input {
+                        // padding: 10px;
+                        width: 100px;
+                        height: 40px;
+                        font-family: $robotob;
+                        font-size: 16px;
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        margin-top: 13px;
+                        display: inline-block;
+                        height: 15px;
+                        width: 15px;
+                        background-color: $primaryAccent;
+                        border-radius: 50%;
+                        opacity: 1;
+
+                        &.active {
+                            background-color: $primary !important;
+                            border: 1px solid $primaryAccent;
+                        }
+
+                        &.finished {
+                            background-color: $primaryDark;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+    main#booknow {
+        .container {
+            .wrapper {
+                #reservation-form {
+                    .content-tab {
+                        .form-content {
+                            .sub-title-1 {
+                                margin-bottom: 10px;
+                            }
+
+                            .main-courses {
+                                .mc {
+                                    flex-direction: column;
+
+                                    .column {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        flex-direction: column;
+                                        text-align: left;
+
+                                        &.left {
+                                            margin-top: 5px;
+                                            margin-right: 0%;
+                                        }
+
+                                        &.right {
+                                            margin-top: -10px;
+                                            text-align: left !important;
+                                            margin-left: 0%;
+
+                                        }
+                                    }
+                                }
+                            }
+
+                            .paynum {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+
+                                .menu-order {
+                                    order: 1;
+                                    width: 100%;
+                                    margin-right: 0%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    text-align: left;
+                                }
+
+                                .payinfo {
+                                    order: 2;
+                                    width: 100%;
+                                    margin-left: 0%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    text-align: left;
+
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    main#booknow {
+        .container {
+            .wrapper {
+                #reservation-form {
+                    .content-tab {
+                        .form-content {
+                            .date-time {
+
+                                .left,
+                                .right {
+                                    flex-direction: column;
+
+                                    .error {
+                                        padding-left: 0px;
+                                    }
+                                }
+                            }
+
+                            .paynum {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                flex-wrap: wrap;
+
+                                .menu-order {
+                                    order: 1;
+                                    width: 100%;
+                                    margin-right: 0%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    text-align: left;
+                                }
+
+                                .payinfo {
+                                    order: 2;
+                                    width: 100%;
+                                    margin-left: 0%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    text-align: left;
+
+                                }
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        .button-step {
+                            text-align: right;
+                        }
+
+                        .circle-step {
+                            width: auto;
+                            // border: 1px solid red;
+                            text-align: left !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
